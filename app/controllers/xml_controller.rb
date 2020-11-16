@@ -12,9 +12,9 @@ class XmlController < ApplicationController
         res.push [count += 1, num, num**2]
       end
     end
-    # @result = res
-    # @count = count
-    data = res.map { |val| {iter: val[0], num: val[1], sq_num: val[2]} }
+    @result = res
+    @count = count
+    data = res.map { |val| {iter: val[0], num: val[1], squared: val[2]} }
     respond_to do |format|
       format.xml { render xml: data.to_xml }
       format.rss { render xml: data.to_xml }
